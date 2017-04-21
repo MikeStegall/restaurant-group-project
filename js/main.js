@@ -10,3 +10,19 @@ function initMap () {
     map: map
   })
 }
+
+function responseFail (el) {
+  el.html('Ooops.')
+}
+
+var flickrURL = 'https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=7622fe7cb0a248dc2339b9433de1e05e&tags=Burrito&format=json&nojsoncallback=1&api_sig=7b9fdeedea37813476c6c7695298a915'
+
+function jsonFlickrApi (data) {
+// https://farm{farm-id}.staticflickr.com/{server-id}/{id}_{secret}.jpg
+  var farmid = data.photos.photo[2].farm
+  var serverID = data.photos.photo[2].server
+  var id = data.photos.photo[2].id
+  var secret = data.photos.photo[2].secret
+  var picURL = 'https://farm' + farmid + '.staticflickr.com/' + serverID + '/' + id + '_' + secret + '.jpg'
+  console.log(picURL)
+}
