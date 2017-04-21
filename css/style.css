@@ -2,3 +2,48 @@
        height: 400px;
        width: 400px;
       }
+#News{
+  border-style: solid;
+  background-color: red;
+  height: 50px;
+  width: 50px;
+  position: absolute;
+  left: 110px;
+  top: 410px;
+}
+#Special{
+  border-style: solid;
+  background-color: blue;
+  height: 50px;
+  width: 50px;
+  position: absolute;
+  left: 160px;
+  top: 410px;
+}
+#Fancy{
+  border-style: solid;
+  background-color: yellow;
+  height: 50px;
+  width: 50px;
+  position: absolute;
+  left: 210px;
+  top: 410px;
+}
+#Alaydis{
+  border-style: solid;
+  background-color: green;
+  height: 50px;
+  width: 50px;
+  position: absolute;
+  left: 260px;
+  top: 410px;
+}
+#Pub{
+  border-style: solid;
+  background-color: white;
+  height: 50px;
+  width: 50px;
+  position: absolute;
+  left: 310px;
+  top: 410px;
+}
