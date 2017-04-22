@@ -8,8 +8,8 @@
   height: 50px;
   width: 50px;
   position: absolute;
-  left: 110px;
-  top: 410px;
+  left: 410px;
+  top: 350px;
 }
 #Special{
   border-style: solid;
@@ -17,8 +17,8 @@
   height: 50px;
   width: 50px;
   position: absolute;
-  left: 160px;
-  top: 410px;
+  left: 460px;
+  top: 350px;
 }
 #Fancy{
   border-style: solid;
@@ -26,8 +26,8 @@
   height: 50px;
   width: 50px;
   position: absolute;
-  left: 210px;
-  top: 410px;
+  left: 510px;
+  top: 350px;
 }
 #Alaydis{
   border-style: solid;
@@ -35,8 +35,8 @@
   height: 50px;
   width: 50px;
   position: absolute;
-  left: 260px;
-  top: 410px;
+  left: 560px;
+  top: 350px;
 }
 #Pub{
   border-style: solid;
@@ -44,6 +44,14 @@
   height: 50px;
   width: 50px;
   position: absolute;
-  left: 310px;
+  left: 610px;
+  top: 350px;
+}
+.History{
+  border-style: solid;
+  height: 675px;
+  width: 350px;
+  position: absolute;
+  left: 510px;
   top: 410px;
 }
