@@ -1,49 +1,45 @@
+.titleWrap{
+  display: flex;
+}
+
 #map {
        height: 400px;
        width: 400px;
       }
-#News{
+#news{
   border-style: solid;
   background-color: red;
-  height: 50px;
-  width: 50px;
-  position: absolute;
   left: 110px;
   top: 410px;
 }
-#Special{
+#special{
   border-style: solid;
   background-color: blue;
-  height: 50px;
-  width: 50px;
-  position: absolute;
   left: 160px;
   top: 410px;
 }
-#Fancy{
+#fancy{
   border-style: solid;
   background-color: yellow;
-  height: 50px;
-  width: 50px;
-  position: absolute;
   left: 210px;
   top: 410px;
 }
-#Alaydis{
+#alaydis{
   border-style: solid;
   background-color: green;
-  height: 50px;
-  width: 50px;
-  position: absolute;
   left: 260px;
   top: 410px;
 }
-#Pub{
+#pub{
   border-style: solid;
   background-color: white;
-  height: 50px;
-  width: 50px;
-  position: absolute;
   left: 310px;
   top: 410px;
+}
+#logo {
+  width: 500px;
+  height: 500px;
+}
+#title{
+  font-size: 100px
 }
