@@ -1,12 +1,12 @@
+.wraper{
+  display: flex;
+}
 .titleWrap{
   display: flex;
 }
 .history{
   border-style: solid;
-  height: 675px;
-  width: 350px;
   position: absolute;
-  left: 510px;
 }
 #map {
   height: 400px;
