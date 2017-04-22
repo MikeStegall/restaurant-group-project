@@ -9,16 +9,14 @@
   left: 510px;
 }
 #map {
-       height: 400px;
-       width: 400px;
-      }
-#news{
+  height: 400px;
+  width: 400px;
+}
+#news {
   border-style: solid;
   background-color: red;
-
   left: 110px;
   top: 410px;
-
 }
 #special{
   border-style: solid;
@@ -41,8 +39,8 @@
 #pub{
   border-style: solid;
   background-color: white;
-   left: 310px;
-  top: 410px; 
+  left: 310px;
+  top: 410px;
 }
 #logo {
   width: 500px;
