@@ -14,7 +14,7 @@ function initMap () {
 }
 
 // These are the functions on how to get pictures from the flickr API
-var flickrURL = 'https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=393b9da4a2e761797b387b39cae61243&tags=Burrito&text=Burrito+food&privacy_filter=1&safe_search=1&content_type=1&format=json&nojsoncallback=1&api_sig=a001f6288736b6ffbe3cb5e3b7919dde'
+var flickrURL = 'https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=393b9da4a2e761797b387b39cae61243&tags=Burrito%2C+burrito&text=Burrito&format=json&nojsoncallback=1&api_sig=891622461f7336483f99b7d21750bdf5'
 // https://farm{farm-id}.staticflickr.com/{server-id}/{id}_{secret}.jpg
 
 function renderPic (data, num, imgEl) {
@@ -27,10 +27,6 @@ function renderPic (data, num, imgEl) {
 }
 
 var randomPhotoNum = Math.floor(Math.random() * 100)
-
-function responseFail (el) {
-  el.html('Oops.')
-}
 
 function jsonFlickrApi (data) {
   renderPic(data, randomPhotoNum, '#test')
