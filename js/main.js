@@ -43,7 +43,7 @@ function responseFail (xhr, textStatus, errorThrown) {
   $('#errorDiv').html('Error: ' + xhr.statusText)
 }
 
- $(function() {
+$(function () {
   var url = 'https://json-data.herokuapp.com/restaurant/news/1'
   var badUrl = 'http://thisdoesnotexist1091092.com'
   apiCall = $.get(url, dataToEl).fail(responseFail)
