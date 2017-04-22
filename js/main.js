@@ -14,7 +14,7 @@ function initMap () {
 }
 
 // These are the functions on how to get pictures from the flickr API
-var flickrURL = 'https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=2021f3e42913ad4588b58d723308b3e9&tags=Burrito&privacy_filter=1&safe_search=1&content_type=1&format=json&nojsoncallback=1&api_sig=c7d452002d567b77e8c6fb60e0fc78a3'
+var flickrURL = 'https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=393b9da4a2e761797b387b39cae61243&tags=Burrito&text=Burrito+food&privacy_filter=1&safe_search=1&content_type=1&format=json&nojsoncallback=1&api_sig=a001f6288736b6ffbe3cb5e3b7919dde'
 // https://farm{farm-id}.staticflickr.com/{server-id}/{id}_{secret}.jpg
 
 function renderPic (data, num, imgEl) {
@@ -38,17 +38,17 @@ function jsonFlickrApi (data) {
 $.get(flickrURL).done(jsonFlickrApi).fail(responseFail)
 
 function dataToEl (data) {
-  $('#title').html(data.title + '  ' + data.date_published);
-  $('#news').html(data.post);
+  $('#title p').html(data.title + '  ' + data.date_published)
+  $('#news').html(data.post)
 }
 
 function responseFail (xhr, textStatus, errorThrown) {
-  $('#news').html('Ooops.');
-  $("#errorDiv").html("Error: " + xhr.statusText);
+  $('#news').html('Ooops.')
+  $('#errorDiv').html('Error: ' + xhr.statusText)
 }
 
  $(function() {
-  var url = 'https://json-data.herokuapp.com/restaurant/news/1';
-  var badUrl = "http://thisdoesnotexist1091092.com"
-  apiCall = $.get(url, dataToEl).fail(responseFail);
-});
+  var url = 'https://json-data.herokuapp.com/restaurant/news/1'
+  var badUrl = 'http://thisdoesnotexist1091092.com'
+  apiCall = $.get(url, dataToEl).fail(responseFail)
+})
