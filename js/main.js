@@ -14,7 +14,7 @@ function initMap () {
 }
 
 // These are the functions on how to get pictures from the flickr API
-var flickrURL = 'https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=393b9da4a2e761797b387b39cae61243&tags=Burrito%2C+burrito&text=Burrito&format=json&nojsoncallback=1&api_sig=891622461f7336483f99b7d21750bdf5'
+var flickrURL = 'https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=1800104bf8400142b341d84f76471c7a&tags=chicken+burrito%2C+steak+burrito%2C+veggie+burrito&text=Burrito&per_page=500&format=json&nojsoncallback=1&api_sig=b0810159ac1981230293b8e99a745fde'
 // https://farm{farm-id}.staticflickr.com/{server-id}/{id}_{secret}.jpg
 
 function renderPic (data, num, imgEl) {
@@ -26,10 +26,15 @@ function renderPic (data, num, imgEl) {
   $(imgEl).attr('src', picURL)
 }
 
-var randomPhotoNum = Math.floor(Math.random() * 100)
+var randomPhotoNum = Math.floor(Math.random() * (145 - 0)) + 0
 
 function jsonFlickrApi (data) {
-  renderPic(data, randomPhotoNum, '#test')
+  renderPic(data, 89, '.headerPic')
+  // renderPic(data, 1, '.sidePic1')
+  renderPic(data, 1, '.dailySpecial')
+  renderPic(data, randomPhotoNum + 1, '.sidePic1')
+  renderPic(data, randomPhotoNum - 10, '.sidePic2')
+  renderPic(data, randomPhotoNum, '.sidePic3')
 }
 $.get(flickrURL).done(jsonFlickrApi).fail(responseFail)
 
@@ -43,7 +48,7 @@ function responseFail (xhr, textStatus, errorThrown) {
   $('#errorDiv').html('Error: ' + xhr.statusText)
 }
 
- $(function() {
+$(function () {
   var url = 'https://json-data.herokuapp.com/restaurant/news/1'
   var badUrl = 'http://thisdoesnotexist1091092.com'
   apiCall = $.get(url, dataToEl).fail(responseFail)
