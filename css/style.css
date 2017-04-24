@@ -8,6 +8,17 @@
   border-style: solid;
   position: absolute;
 }
+.socialMedia {
+  display: inline-block;
+  font-size: 1.5em;
+  position: absolute;
+  right: 10px;
+  top: 0%;
+}
+.icons {
+  height: 40px;
+  width: 40px;
+}
 #map {
   height: 400px;
   width: 400px;
@@ -43,8 +54,8 @@
   top: 410px;
 }
 #logo {
-  width: 500px;
-  height: 500px;
+  width: 200px;
+  height: 200px;
 }
 #title{
   font-size: 100px

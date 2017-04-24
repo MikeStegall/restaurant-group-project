@@ -14,7 +14,7 @@ function initMap () {
 }
 
 // These are the functions on how to get pictures from the flickr API
-var flickrURL = 'https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=393b9da4a2e761797b387b39cae61243&tags=Burrito%2C+burrito&text=Burrito&format=json&nojsoncallback=1&api_sig=891622461f7336483f99b7d21750bdf5'
+var flickrURL = 'https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=12041d9b7996af80296cc02d42ba32fa&tags=chicken+burrito%2C+steak+burrito%2C+veggie+burrito&text=Burrito&per_page=500&format=json&nojsoncallback=1&api_sig=8c41c804b63071b949a07baf0fa196a3'
 // https://farm{farm-id}.staticflickr.com/{server-id}/{id}_{secret}.jpg
 
 function renderPic (data, num, imgEl) {
@@ -24,12 +24,16 @@ function renderPic (data, num, imgEl) {
   var secret = data.photos.photo[num].secret
   var picURL = 'https://farm' + farmID + '.staticflickr.com/' + serverID + '/' + id + '_' + secret + '.jpg'
   $(imgEl).attr('src', picURL)
+  console.log(picURL)
 }
 
-var randomPhotoNum = Math.floor(Math.random() * 100)
-
 function jsonFlickrApi (data) {
-  renderPic(data, randomPhotoNum, '#test')
+  renderPic(data, 89, '.headerPic')
+  // renderPic(data, 1, '.sidePic1')
+  renderPic(data, 1, '.dailySpecial')
+  renderPic(data, 103, '.sidePic1')
+  renderPic(data, 71, '.sidePic2')
+  renderPic(data, 80, '.sidePic3')
 }
 $.get(flickrURL).done(jsonFlickrApi).fail(responseFail)
 
