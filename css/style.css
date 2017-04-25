@@ -1,4 +1,11 @@
+body {
+  background-color: #004D40;
+}
+
 .wraper{
+  display: flex;
+}
+.feedWrapper{
   display: flex;
 }
 .titleWrap{
@@ -10,7 +17,6 @@
 }
 .socialMedia {
   display: inline-block;
-  font-size: 1.5em;
   position: absolute;
   right: 10px;
   top: 0%;
@@ -19,44 +25,45 @@
   height: 40px;
   width: 40px;
 }
+.feed {
+  border: solid black 1px;
+  padding: 20px
+  flex: 1;
+}
+.feed img {
+  /*width: 50%;
+  height: 50%;*/
+}
 #map {
   height: 400px;
   width: 400px;
 }
 #news {
   border-style: solid;
-  background-color: red;
   left: 110px;
   top: 410px;
 }
 #special{
   border-style: solid;
-  background-color: blue;
   left: 160px;
   top: 410px;
 }
 #fancy{
   border-style: solid;
-  background-color: yellow;
   left: 210px;
   top: 410px;
 }
 #alaydis{
   border-style: solid;
-  background-color: green;
   left: 260px;
   top: 410px;
 }
 #pub{
   border-style: solid;
-  background-color: white;
   left: 310px;
   top: 410px;
 }
 #logo {
   width: 200px;
   height: 200px;
-}
-#title{
-  font-size: 100px
 }
