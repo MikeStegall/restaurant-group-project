@@ -52,3 +52,37 @@ $(function () {
   var badUrl = 'http://thisdoesnotexist1091092.com'
   apiCall = $.get(url, dataToEl).fail(responseFail)
 })
+
+
+
+// This is our specials api
+$(function () {
+  //var url = 'https://json-data.herokuapp.com/restaurant/news/1'
+
+  var urlMenu = "https://json-data.herokuapp.com/restaurant/menu/1"
+  var urlSpecail = "https://json-data.herokuapp.com/restaurant/special/1"
+  var badUrl = 'http://thisdoesnotexist1091092.com'
+  //apiCall = $.get(url, dataToEl).fail(responseFail)
+
+
+
+  $.get(urlMenu, function(data) {
+
+    entrees = data.entrees;
+
+    $.get(urlSpecail, function(data) {
+
+        for(var i = 0; i < entrees.length; i++) {
+          if( data.menu_item_id == entrees[i].id ) {
+            special = entrees[i];
+            $("#special").html(special.item);
+            console.log(special);
+            break;
+          }
+        }
+
+    });
+
+  });
+
+});
