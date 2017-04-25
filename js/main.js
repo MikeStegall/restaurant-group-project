@@ -25,10 +25,11 @@ function renderPic (data, num, imgEl) {
   var picURL = 'https://farm' + farmID + '.staticflickr.com/' + serverID + '/' + id + '_' + secret + '.jpg'
   $(imgEl).attr('src', picURL)
   console.log(picURL)
+  console.log(id)
 }
 
 function jsonFlickrApi (data) {
-  renderPic(data, 88, '.headerPic')
+  renderPic(data, 87, '.headerPic')
   renderPic(data, 1, '.dailySpecialPic')
   renderPic(data, 103, '.sidePic1')
   renderPic(data, 71, '.sidePic2')
@@ -61,9 +62,10 @@ function toggleTabs (btn) {
   $(this).addClass('show')
   // takes the data att name from the btn and creates a class
   var className = '.' + btn.target.dataset.btn
-  $('.menu, .history, .reservations').hide()
+  $('.menu, .history, .reservation').hide()
   $(className).show()
   console.log('This is the ' + className)
+  console.log($('.reservation').html())
 }
 // Hides the content
-$('.menu, .reservations').hide()
+$('.menu, .reservation').hide()
