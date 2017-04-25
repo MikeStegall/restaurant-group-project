@@ -16,10 +16,10 @@
         <img class='icons' src="images/open_table.png" alt="Open Table">
       </div>
     </header>
+    <div class="headerPicWrapper">
+      <img class='headerPic' src="" alt='Pictures of burritos'>
+    </div>
     <div class="wrapper">
-      <div class="headerPicWrapper">
-        <img class='headerPic' src="" alt='Pictures of burritos'>
-      </div>
       <div class='feedWrapper'>
         <div class="feed news">
           <div id='title'><p></p></div>
@@ -35,48 +35,49 @@
           <div id="map"></div>
         </div>
       </div>
-      <div class="menuHistoryReservastionWrapper">
-        <div class="buttonSwitch">
-          <button type="button" name="History">History</button>
-          <button type="button" name="Menu">Menu</button>
-          <button type="button" name="Reservation">Reservation</button>
+      <div class='menuSidePicWrapper'>
+        <div class="menuHistoryReservastionWrapper">
+          <div class="buttonSwitch">
+            <button data-btn="history" class='buttons show'>History</button>
+            <button data-btn="menu" class='buttons'>Menu</button>
+            <button data-btn="reservations" class='buttons'>Reservation</button>
+          </div>
+          <div class="history">
+            <h1>Restaurant History</h1>
+            <p>Burrito Boys was founded on January 18, 1986. Gerry and Christos Stathatos purchased the assets of a struggling restaurant at 416 N. 76th street in Houston, Texas. They liked the Harrisburg/Wayside neighborhood very much , a mixture of hard working people and small business. This they thought would be a great area for their new business. The restaurant , renamed Burrito Boys Restaurant  opened with a new look, and an enhanced menu. Their business was so successful, that in 1991, they added 1,000 square feet of dining area, increasing seating capacity to 170, while adding 1,500 square feet for a larger kitchen. They then added parking across the street from the restaurant to accommodate the additional business. Continuing the growth of the company, Burrito Boys Inc. acquired their second location at 8385 Broadway, in Houston, Texas in June of 1994. This became a very successful location as well. In 2001, Burrito Boys Restaurants opened their third location at 6501 Southwest Freeway at Hillcroft in Houston, Texas, and in 2008, the fourth location was opened in Waco, Texas at 4651 Interstate 35 South. Burrito Boys Restaurants was built on pride and hard work. What separates Burrito Boys from others in the restaurant industry, is the quality and attention to detail. Ambiance, Quality, and Service are the focus of this company. Currently with 4 locations, Gerry and Christos plan to expand in new markets in the near future. You will always enjoy Great Burrito and Drinks, Great Service, and a Great Atmosphere at any of our locations.
+            Thank you for dining at Burrito Boys Mexican Restaurant</p>
+          </div> <!--end of history div-->
+          <div class="menu">
+            <div id="fancy">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+            <div id="alaydis"></div>
+            <div id="pub"></div>
+          </div> <!--end of feed menu-->
+          <div class="reservation">
+            <h4>Reservations</h4>
+              <form action="">
+                Full Name:<br>
+                <input type="text" name="fullname"><br>
+                Number of Guests:<br>
+                <input type="text" name="number"><br>
+                Date:<br>
+                <input type="date" name="date"><br>
+                Special Notes:<br>
+                <textarea name="notes" rows="5" cols="60"></textarea><br>
+                Seating Preference <br>
+                <select>
+                  <option value="indoor">Indoor</option>
+                  <option value="outdoor">Outdoor</option>
+                </select>
+                <button class="reserve-button">Reserve Table</button>
+              </form>
+          </div>
         </div>
-        <div class="history">
-          <h1>Restaurant History</h1>
-          <p>Burrito Boys was founded on January 18, 1986. Gerry and Christos Stathatos purchased the assets of a struggling restaurant at 416 N. 76th street in Houston, Texas. They liked the Harrisburg/Wayside neighborhood very much , a mixture of hard working people and small business. This they thought would be a great area for their new business. The restaurant , renamed Burrito Boys Restaurant  opened with a new look, and an enhanced menu. Their business was so successful, that in 1991, they added 1,000 square feet of dining area, increasing seating capacity to 170, while adding 1,500 square feet for a larger kitchen. They then added parking across the street from the restaurant to accommodate the additional business. Continuing the growth of the company, Burrito Boys Inc. acquired their second location at 8385 Broadway, in Houston, Texas in June of 1994. This became a very successful location as well. In 2001, Burrito Boys Restaurants opened their third location at 6501 Southwest Freeway at Hillcroft in Houston, Texas, and in 2008, the fourth location was opened in Waco, Texas at 4651 Interstate 35 South. Burrito Boys Restaurants was built on pride and hard work. What separates Burrito Boys from others in the restaurant industry, is the quality and attention to detail. Ambiance, Quality, and Service are the focus of this company. Currently with 4 locations, Gerry and Christos plan to expand in new markets in the near future. You will always enjoy Great Burrito and Drinks, Great Service, and a Great Atmosphere at any of our locations.
-          Thank you for dining at Burrito Boys Mexican Restaurant</p>
-        </div> <!--end of history div-->
-        <div class="feed menu">
-          <div id="fancy"></div>
-          <div id="alaydis"></div>
-          <div id="pub"></div>
-        </div> <!--end of feed menu-->
-        <div class="reservations">
-          <h4>Reservations</h4>
-            <form action="">
-              Full Name:<br>
-              <input type="text" name="fullname"><br>
-              Number of Guests:<br>
-              <input type="text" name="number"><br>
-              Date:<br>
-              <input type="date" name="date"><br>
-              Special Notes:<br>
-              <textarea name="notes" rows="5" cols="60"></textarea><br>
-              Seating Preference <br>
-              <select>
-                <option value="indoor">Indoor</option>
-                <option value="outdoor">Outdoor</option>
-                <option value="vip">VIP</option>
-              </select><br><br>
-              <button class="reserve-button">Reserve Table</button>
-            </form>
-        </div>
-      </div>
-      <div class="sideBar">
-        <img class='sidePic1' src="" alt='Pictures of burritos'>
-        <img class='sidePic2' src="" alt='Pictures of burritos'>
-        <img class='sidePic3' src="" alt='Pictures of burritos'>
-      </div><!--end of side bar-->
+        <div class="sideBar">
+          <img class='sidePic1' src="" alt='Pictures of burritos'>
+          <img class='sidePic2' src="" alt='Pictures of burritos'>
+          <img class='sidePic3' src="" alt='Pictures of burritos'>
+        </div><!--end of side bar-->
+      </div><!--End of menuSidePicWrapper-->
     </div> <!--End of wrapper div-->
     <script src='js/jquery-3.2.1.min.js'></script>
     <script src="js/main.js"></script>

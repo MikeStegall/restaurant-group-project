@@ -14,7 +14,7 @@ function initMap () {
 }
 
 // These are the functions on how to get pictures from the flickr API
-var flickrURL = 'https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=eb027270d22c94ca2be72521ae36514b&tags=chicken+burrito%2C+steak+burrito%2C+veggie+burrito&text=Burrito&per_page=500&format=json&nojsoncallback=1&api_sig=ad3e93b85cf191392c4a4baed7f43be2'
+var flickrURL = 'https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=70c8af8f150221737b7487a43a27aebd&tags=chicken+burrito%2C+steak+burrito%2C+veggie+burrito&text=Burrito&per_page=500&format=json&nojsoncallback=1&auth_token=72157680965850351-e4778b2c511c3149&api_sig=6e56973bff6da660666231cd619c26f2'
 // https://farm{farm-id}.staticflickr.com/{server-id}/{id}_{secret}.jpg
 
 function renderPic (data, num, imgEl) {
@@ -24,7 +24,6 @@ function renderPic (data, num, imgEl) {
   var secret = data.photos.photo[num].secret
   var picURL = 'https://farm' + farmID + '.staticflickr.com/' + serverID + '/' + id + '_' + secret + '.jpg'
   $(imgEl).attr('src', picURL)
-  console.log(picURL)
 }
 
 function jsonFlickrApi (data) {
@@ -36,6 +35,7 @@ function jsonFlickrApi (data) {
 }
 $.get(flickrURL).done(jsonFlickrApi).fail(responseFail)
 
+// These funstions are for getting the data from the custom restaurant API
 function dataToEl (data) {
   $('#title p').html(data.title + '  ' + data.date_published)
   $('#restaurantNews').html(data.post)
@@ -48,7 +48,21 @@ function responseFail (xhr, textStatus, errorThrown) {
 
 $(function () {
   var url = 'https://json-data.herokuapp.com/restaurant/news/1'
-
-  var badUrl = 'http://thisdoesnotexist1091092.com'
   apiCall = $.get(url, dataToEl).fail(responseFail)
 })
+
+// These functions are for the buttons for make the history, menu and reservations work together.
+
+$('.buttonSwitch .buttons').click(toggleTabs)
+function toggleTabs (btn) {
+  // toggles class 'active' in btn tabs
+  $('.buttonSwitch .buttons').removeClass('show')
+  $(this).addClass('show')
+  // takes the data att name from the btn and creates an id
+  var className = '.' + btn.target.dataset.btn
+  $('.menu, .history, .reservation').hide()
+  $(className).show()
+  console.log('This is the ' + className)
+}
+// Hides the content
+$('.menu, .reservation').hide()
