@@ -42,7 +42,7 @@ $.get(flickrURL).done(jsonFlickrApi).fail(responseFail)
 
 // These funstions are for getting the data from the custom restaurant API
 
-//This our news API 
+//This our news API
 function dataToEl (data) {
   $('#title p').html(data.title + '  ' + data.date_published)
   $('#restaurantNews').html(data.post)
