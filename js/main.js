@@ -24,30 +24,25 @@ function renderPic (data, num, imgEl) {
   var secret = data.photos.photo[num].secret
   var picURL = 'https://farm' + farmID + '.staticflickr.com/' + serverID + '/' + id + '_' + secret + '.jpg'
   $(imgEl).attr('src', picURL)
-  console.log(picURL)
-  console.log(id)
+  // console.log(picURL)
+  // console.log(id)
 }
 
 function jsonFlickrApi (data) {
-  renderPic(data, 87, '.headerPic')
-  renderPic(data, 1, '.dailySpecialPic')
-  renderPic(data, 103, '.sidePic1')
-  renderPic(data, 71, '.sidePic2')
+  renderPic(data, 87, '.headerPic') // https://farm3.staticflickr.com/2679/4418434156_cf8a315ff8.jpg
+  renderPic(data, 1, '.dailySpecialPic') // https://farm8.staticflickr.com/7392/27981497742_70ae10950d.jpg
+  renderPic(data, 103, '.sidePic1')// https://farm3.staticflickr.com/2441/3744351366_cc5cbc0049.jpg
+  renderPic(data, 71, '.sidePic2') // https://farm5.staticflickr.com/4141/4882317101_84e32b3d62.jpg
   renderPic(data, 80, '.sidePic3')
 }
 $.get(flickrURL).done(jsonFlickrApi).fail(responseFail)
 
+// =======================================================================
+// This is the custom restaurant api
+// =======================================================================
 
-
-//This our news API
-
-
-
-// These funstions are for getting the data from the custom restaurant API
-
-//This our news API
-
-function dataToEl (data) {
+// This our news API
+function dataToNews (data) {
   $('#title p').html(data.title + '  ' + data.date_published)
   $('#restaurantNews').html(data.post)
 }
@@ -57,21 +52,16 @@ function responseFail (xhr, textStatus, errorThrown) {
   $('#errorDiv').html('Error: ' + xhr.statusText)
 }
 
-$(function () {
-  var url = 'https://json-data.herokuapp.com/restaurant/news/1'
-  apiCall = $.get(url, dataToEl).fail(responseFail)
-})
+var newsUrl = 'https://json-data.herokuapp.com/restaurant/news/1'
+$.get(newsUrl, dataToNews).fail(responseFail)
 
 // This is our specials api
 $(function () {
-  //var url = 'https://json-data.herokuapp.com/restaurant/news/1'
-
-  var urlMenu = "https://json-data.herokuapp.com/restaurant/menu/1"
-  var urlSpecail = "https://json-data.herokuapp.com/restaurant/special/1"
+  // var url = 'https://json-data.herokuapp.com/restaurant/news/1'
+  var urlMenu = 'https://json-data.herokuapp.com/restaurant/menu/1'
+  var urlSpecail = 'https://json-data.herokuapp.com/restaurant/special/1'
   var badUrl = 'http://thisdoesnotexist1091092.com'
-  //apiCall = $.get(url, dataToEl).fail(responseFail)
-
-
+  // apiCall = $.get(url, dataToEl).fail(responseFail)
 
   $.get(urlMenu, function (data) {
     var entrees = data.entrees
@@ -89,11 +79,10 @@ $(function () {
 
 // Menu API start
 $(function () {
-var url = 'https://json-data.herokuapp.com/restaurant/menu/1'
+  var url = 'https://json-data.herokuapp.com/restaurant/menu/1'
 // var badUrl = 'http://thisdoesnotexist1091092.com'
-apiCall = $.get(url, dataToEl2).fail(responseFail)
-$.getJSON(url).done(getMenuData)
-
+// apiCall = $.get(url, dataToEl2).fail(responseFail)
+  $.getJSON(url).done(getMenuData)
 })
 
 function getMenuData (data) {
@@ -110,7 +99,6 @@ function buildMenu (foodCourse, obj) {
   obj.forEach(function (index) {
     $('#menu').append(createMenuEntries(index))
   })
-  console.log(foodCourseHeading)
   // getDailySpecial()
 }
 
@@ -118,6 +106,11 @@ function createMenuEntries (eachFoodItem) {
   var menuItem = '<div id="' + eachFoodItem.id + '">' + '<p><strong>' + eachFoodItem.item + ' .......... $' + eachFoodItem.price + '</strong></p>' +
   '<p>' + eachFoodItem.description + '</p></div>'
   return menuItem
+}
+function displayDailySpecial (data) {
+  var id = '#' + data.menu_item_id
+  var dailySpecial = $(id)
+  $('#dailySpecial').html(dailySpecial)
 }
 
 // These functions are for the buttons for make the history, menu and reservations work together.
