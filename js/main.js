@@ -14,7 +14,7 @@ function initMap () {
 }
 
 // These are the functions on how to get pictures from the flickr API
-var flickrURL = 'https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=70c8af8f150221737b7487a43a27aebd&tags=chicken+burrito%2C+steak+burrito%2C+veggie+burrito&text=Burrito&per_page=500&format=json&nojsoncallback=1&auth_token=72157680965850351-e4778b2c511c3149&api_sig=6e56973bff6da660666231cd619c26f2'
+var flickrURL = 'https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=19c593fbc7e6e191716c96844602d0f9&tags=chicken+burrito%2C+steak+burrito%2C+veggie+burrito&text=Burrito&per_page=500&format=json&nojsoncallback=1&auth_token=72157681009254301-b1effc6e7630861e&api_sig=7c9852594c8adbb99bf77c5d923831ed'
 // https://farm{farm-id}.staticflickr.com/{server-id}/{id}_{secret}.jpg
 
 function renderPic (data, num, imgEl) {
@@ -73,33 +73,24 @@ $(function () {
 
 
 
-  $.get(urlMenu, function(data) {
-
-    entrees = data.entrees;
-
-    $.get(urlSpecail, function(data) {
-
-        for(var i = 0; i < entrees.length; i++) {
-          if( data.menu_item_id == entrees[i].id ) {
-            special = entrees[i];
-            $("#special").html(special.item);
-            console.log(special);
-            break;
-          }
+  $.get(urlMenu, function (data) {
+    var entrees = data.entrees
+    $.get(urlSpecail, function (data) {
+      for (var i = 0; i < entrees.length; i++) {
+        if (data.menu_item_id === entrees[i].id) {
+          var special = entrees[i]
+          $('#special').html(special.item)
+          // break
         }
+      }
+    })
+  })
+})
 
-    });
-
-  });
-
-});
-
-
-//Menu API start
-// menu API start
+// Menu API start
 $(function () {
 var url = 'https://json-data.herokuapp.com/restaurant/menu/1'
-var badUrl = 'http://thisdoesnotexist1091092.com'
+// var badUrl = 'http://thisdoesnotexist1091092.com'
 apiCall = $.get(url, dataToEl2).fail(responseFail)
 $.getJSON(url).done(getMenuData)
 
@@ -119,7 +110,8 @@ function buildMenu (foodCourse, obj) {
   obj.forEach(function (index) {
     $('#menu').append(createMenuEntries(index))
   })
-  getDailySpecial()
+  console.log(foodCourseHeading)
+  // getDailySpecial()
 }
 
 function createMenuEntries (eachFoodItem) {
@@ -139,8 +131,6 @@ function toggleTabs (btn) {
   var className = '.' + btn.target.dataset.btn
   $('.menu, .history, .reservation').hide()
   $(className).show()
-  console.log('This is the ' + className)
-  console.log($('.reservation').html())
 }
 // Hides the content
-$('.menu, .reservation').hide();
+$('.menu, .reservation').hide()
