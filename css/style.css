@@ -49,3 +49,7 @@
 #title{
   font-size: 100px
 }
+#disqus_thread{
+  border-style: solid;
+  background-color: green
+}
