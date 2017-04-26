@@ -37,6 +37,8 @@ function jsonFlickrApi (data) {
 }
 $.get(flickrURL).done(jsonFlickrApi).fail(responseFail)
 
+
+//This our news API 
 function dataToEl (data) {
   $('#title p').html(data.title + '  ' + data.date_published)
   $('#news').html(data.post)
