@@ -37,7 +37,12 @@ function jsonFlickrApi (data) {
 }
 $.get(flickrURL).done(jsonFlickrApi).fail(responseFail)
 
+
+
+
 // These funstions are for getting the data from the custom restaurant API
+
+//This our news API 
 function dataToEl (data) {
   $('#title p').html(data.title + '  ' + data.date_published)
   $('#restaurantNews').html(data.post)
@@ -52,6 +57,38 @@ $(function () {
   var url = 'https://json-data.herokuapp.com/restaurant/news/1'
   apiCall = $.get(url, dataToEl).fail(responseFail)
 })
+
+// This is our specials api
+$(function () {
+  //var url = 'https://json-data.herokuapp.com/restaurant/news/1'
+
+  var urlMenu = "https://json-data.herokuapp.com/restaurant/menu/1"
+  var urlSpecail = "https://json-data.herokuapp.com/restaurant/special/1"
+  var badUrl = 'http://thisdoesnotexist1091092.com'
+  //apiCall = $.get(url, dataToEl).fail(responseFail)
+
+
+
+  $.get(urlMenu, function(data) {
+
+    entrees = data.entrees;
+
+    $.get(urlSpecail, function(data) {
+
+        for(var i = 0; i < entrees.length; i++) {
+          if( data.menu_item_id == entrees[i].id ) {
+            special = entrees[i];
+            $("#special").html(special.item);
+            console.log(special);
+            break;
+          }
+        }
+
+    });
+
+  });
+
+});
 
 // These functions are for the buttons for make the history, menu and reservations work together.
 
