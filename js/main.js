@@ -38,7 +38,7 @@ function jsonFlickrApi (data) {
 $.get(flickrURL).done(jsonFlickrApi).fail(responseFail)
 
 
-//This our news API 
+//This our news API
 function dataToEl (data) {
   $('#title p').html(data.title + '  ' + data.date_published)
   $('#news').html(data.post)
@@ -88,3 +88,36 @@ $(function () {
   });
 
 });
+
+//Menu API start
+// menu API start
+$(function () {
+var url = 'https://json-data.herokuapp.com/restaurant/menu/1'
+var badUrl = 'http://thisdoesnotexist1091092.com'
+apiCall = $.get(url, dataToEl2).fail(responseFail)
+$.getJSON(url).done(getMenuData)
+
+})
+
+function getMenuData (data) {
+  for (var item in data) {
+    if (data.hasOwnProperty(item)) {
+      buildMenu(item, data[item])
+    }
+  }
+}
+
+function buildMenu (foodCourse, obj) {
+  var foodCourseHeading = '<h2>' + foodCourse.charAt(0).toUpperCase() + foodCourse.slice(1) + '<h2>'
+  $('#menu').append(foodCourseHeading)
+  obj.forEach(function (index) {
+    $('#menu').append(createMenuEntries(index))
+  })
+  getDailySpecial()
+}
+
+function createMenuEntries (eachFoodItem) {
+  var menuItem = '<div id="' + eachFoodItem.id + '">' + '<p><strong>' + eachFoodItem.item + ' .......... $' + eachFoodItem.price + '</strong></p>' +
+  '<p>' + eachFoodItem.description + '</p></div>'
+  return menuItem
+}
