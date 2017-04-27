@@ -1,5 +1,6 @@
 body {
-  background-color: #0097A7;
+background: linear-gradient(#80DEEA, #26C6DA);
+font-family: 'Helvetica';
 }
 .menuSidePicWrapper {
   display: flex;
@@ -35,10 +36,6 @@ body {
   border: solid black 1px;
   flex: 1;
 }
-.feed img {
-  /*width: 50%;
-  height: 50%;*/
-}
 .headerPic {
   display: block;
   margin-left: auto;
@@ -51,8 +48,17 @@ body {
 .sideBar{
   flex: 1;
 }
-.buttons {
+.sideBar {
 
+}
+.menu {
+  border: solid black 2px;
+}
+.buttons {
+  background-color: #00838F;
+  width: 251px;
+  height: 50px;
+  font-size: 25px;
 }
 #map {
   height: 413px;
