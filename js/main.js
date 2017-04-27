@@ -14,7 +14,7 @@ function initMap () {
 }
 
 // These are the functions on how to get pictures from the flickr API
-var flickrURL = 'https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=19c593fbc7e6e191716c96844602d0f9&tags=chicken+burrito%2C+steak+burrito%2C+veggie+burrito&text=Burrito&per_page=500&format=json&nojsoncallback=1&auth_token=72157681009254301-b1effc6e7630861e&api_sig=7c9852594c8adbb99bf77c5d923831ed'
+var flickrURL = 'https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=d2cc21cf99dd2a91f2153e363b5c6cca&tags=chicken+burrito%2C+steak+burrito%2C+veggie+burrito&text=Burrito&per_page=500&format=json&nojsoncallback=1&auth_token=72157681044239921-75f6c167794a19cd&api_sig=53093f5fc91b4c4a9ddba0aebed663c2'
 // https://farm{farm-id}.staticflickr.com/{server-id}/{id}_{secret}.jpg
 
 function renderPic (data, num, imgEl) {

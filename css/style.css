@@ -1,5 +1,6 @@
 body {
-  background-color: #0097A7;
+background: linear-gradient(#80DEEA, #26C6DA);
+font-family: 'Helvetica';
 }
 .menuSidePicWrapper {
   display: flex;
@@ -48,14 +49,16 @@ body {
   flex: 1;
 }
 .sideBar {
-  margin-top: 10px;
 
 }
 .menu {
   border: solid black 2px;
 }
 .buttons {
-  width: 245px;
+  background-color: #00838F;
+  width: 251px;
+  height: 50px;
+  font-size: 25px;
 }
 #map {
   height: 413px;
