@@ -1,4 +1,13 @@
-.wraper{
+body {
+  background-color: #0097A7;
+}
+.menuSidePicWrapper {
+  display: flex;
+}
+/*.wrapper{
+  display: flex;
+}*/
+.feedWrapper{
   display: flex;
 }
 .titleWrap{
@@ -6,48 +15,79 @@
 }
 .history{
   border-style: solid;
+}
+.socialMedia {
+  background-color: #E0F7FA;
+  display: inline-block;
   position: absolute;
+  right: 0px;
+  top: 0%;
+}
+.openTable {
+  height: 40px;
+  width: 50px;
+}
+.icons {
+  height: 40px;
+  width: 40px;
+}
+.feed {
+  border: solid black 1px;
+  flex: 1;
+}
+.feed img {
+  /*width: 50%;
+  height: 50%;*/
+}
+.headerPic {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: auto;
+}
+.menuHistoryReservastionWrapper {
+  flex: 2;
+}
+.sideBar{
+  flex: 1;
+}
+.buttons {
+
 }
 #map {
-  height: 400px;
-  width: 400px;
+  height: 413px;
+  width: 413px;
 }
 #news {
   border-style: solid;
-  background-color: red;
   left: 110px;
   top: 410px;
 }
 #special{
   border-style: solid;
-  background-color: blue;
   left: 160px;
   top: 410px;
 }
 #fancy{
   border-style: solid;
-  background-color: yellow;
   left: 210px;
   top: 410px;
 }
 #alaydis{
   border-style: solid;
-  background-color: green;
   left: 260px;
   top: 410px;
 }
 #pub{
   border-style: solid;
-  background-color: white;
   left: 310px;
   top: 410px;
 }
 #logo {
-  width: 500px;
-  height: 500px;
-}
-#title{
-  font-size: 100px
+display: block;
+margin-left: auto;
+margin-right: auto;
+width: auto;
 }
 #disqus_thread{
   border-style: solid;
