@@ -44,6 +44,7 @@ $.get(flickrURL).done(jsonFlickrApi).fail(responseFail)
 
 
 
+
 // These funstions are for getting the data from the custom restaurant API
 
 //This our news API
@@ -119,9 +120,6 @@ function displayDailySpecial (data) {
   var dailySpecial = $(id)
   $('#dailySpecial').html(dailySpecial)
 }
-var menu = { "appetizers":"entries", "sides"};
-var myJSON = JSON.stringify(menu);
-window.location = "extra" + myJSON;
 
 // These functions are for the buttons for make the history, menu and reservations work together.
 
@@ -168,4 +166,5 @@ function createMenuEntries (eachFoodItem) {
   var menuItem = '<div id="' + eachFoodItem.id + '">' + '<p><strong>' + eachFoodItem.item + ' .......... $' + eachFoodItem.price + '</strong></p>' +
   '<p>' + eachFoodItem.description + '</p></div>'
   return menuItem
+}
 }
