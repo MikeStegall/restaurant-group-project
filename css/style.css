@@ -35,10 +35,6 @@ body {
   border: solid black 1px;
   flex: 1;
 }
-.feed img {
-  /*width: 50%;
-  height: 50%;*/
-}
 .headerPic {
   display: block;
   margin-left: auto;
@@ -51,8 +47,15 @@ body {
 .sideBar{
   flex: 1;
 }
-.buttons {
+.sideBar {
+  margin-top: 10px;
 
+}
+.menu {
+  border: solid black 2px;
+}
+.buttons {
+  width: 245px;
 }
 #map {
   height: 413px;

@@ -47,36 +47,56 @@ function dataToNews (data) {
   $('#restaurantNews').html(data.post)
 }
 
-function responseFail (xhr, textStatus, errorThrown) {
-  $('#news').html('Ooops.')
-  $('#errorDiv').html('Error: ' + xhr.statusText)
+function responseFail (element) {
+  element.html('Oops the ' + element + 'failed to load')
 }
 
 var newsUrl = 'https://json-data.herokuapp.com/restaurant/news/1'
+var specialUrl = 'https://json-data.herokuapp.com/restaurant/special/1'
+var menu1Url = 'https://json-data.herokuapp.com/restaurant/menu/1'
 $.get(newsUrl, dataToNews).fail(responseFail)
+$.get(menu1Url).done(callMenuData).fail(responseFail)
 
 // This is our specials api
-$(function () {
-  // var url = 'https://json-data.herokuapp.com/restaurant/news/1'
-  var urlMenu = 'https://json-data.herokuapp.com/restaurant/menu/1'
-  var urlSpecail = 'https://json-data.herokuapp.com/restaurant/special/1'
-  var badUrl = 'http://thisdoesnotexist1091092.com'
-  // apiCall = $.get(url, dataToEl).fail(responseFail)
+function showDailySpecial (data) {
+  var id = '#' + data.menu_item_id
+  var menuItem = $(id)
+  $('#dailySpecial').html(menuItem)
+  console.log('this is the id: ' + id)
+  console.log('this is the menuItem: ' + menuItem)
+}
 
-  $.get(urlMenu, function (data) {
-    var entrees = data.entrees
-    $.get(urlSpecail, function (data) {
-      for (var i = 0; i < entrees.length; i++) {
-        if (data.menu_item_id === entrees[i].id) {
-          var special = entrees[i]
-          $('#special').html(special.item)
-          // break
-        }
-      }
-    })
+function grabDailySpecials () {
+  $.getJSON(specialUrl).done(showDailySpecial).fail(responseFail)
+}
+
+// Menu Api
+function callMenuData (data) {
+  for (var item in data) {
+    if (data.hasOwnProperty(item)) {
+      constructMenuItems(item, data[item])
+    }
+  }
+}
+
+function constructMenuItems (foods, obj) {
+  var title = '<h2>' + firstLetterToUpper(foods) + '</h2>'
+  $('.menu').append(title)
+  obj.forEach(function (item) {
+    $('.menu').append(constructMenuEntries(item))
   })
-})
+  grabDailySpecials()
+}
 
+function constructMenuEntries (eachFoodItem) {
+  var menuItem = '<div id="' + eachFoodItem.id + '">' + '<p><b>' + eachFoodItem.item + ' $' + eachFoodItem.price + '</b</p>' +
+  '<p>' + eachFoodItem.description + '</p></div>'
+  return menuItem
+}
+
+function firstLetterToUpper (str) {
+  return str.charAt(0).toUpperCase() + str.slice(1)
+}
 // Menu API start
 $(function () {
   var url = 'https://json-data.herokuapp.com/restaurant/menu/1'
@@ -103,7 +123,7 @@ function buildMenu (foodCourse, obj) {
 }
 
 function createMenuEntries (eachFoodItem) {
-  var menuItem = '<div id="' + eachFoodItem.id + '">' + '<p><strong>' + eachFoodItem.item + ' .......... $' + eachFoodItem.price + '</strong></p>' +
+  var menuItem = '<div id="' + eachFoodItem.id + '">' + '<p>' + eachFoodItem.item + ' .......... $' + eachFoodItem.price + '</p>' +
   '<p>' + eachFoodItem.description + '</p></div>'
   return menuItem
 }
@@ -112,6 +132,8 @@ function displayDailySpecial (data) {
   var dailySpecial = $(id)
   $('#dailySpecial').html(dailySpecial)
 }
+// responseFail($('.menu'))
+responseFail($('#dailySpecial'))
 
 // These functions are for the buttons for make the history, menu and reservations work together.
 
