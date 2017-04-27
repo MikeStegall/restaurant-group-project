@@ -97,8 +97,8 @@ function constructMenuItems (foods, obj) {
 }
 
 function constructMenuEntries (eachFoodItem) {
-  var menuItem = '<div id="' + eachFoodItem.id + '">' + '<p><b>' + eachFoodItem.item + ' $' + eachFoodItem.price + '</b</p>' +
-  '<p>' + eachFoodItem.description + '</p></div>'
+  var menuItem = '<div id="' + eachFoodItem.id + '">' + '<p><b>' + eachFoodItem.item + '</b</p>' + '<p id="foodPrice"> $' + eachFoodItem.price + '</p>' +
+  '<p id="foodDescription">' + eachFoodItem.description + '</p></div>'
   return menuItem
 }
 
@@ -108,8 +108,6 @@ function firstLetterToUpper (str) {
 // Menu API start
 $(function () {
   var url = 'https://json-data.herokuapp.com/restaurant/menu/1'
-// var badUrl = 'http://thisdoesnotexist1091092.com'
-// apiCall = $.get(url, dataToEl2).fail(responseFail)
   $.getJSON(url).done(getMenuData)
 })
 
