@@ -39,7 +39,8 @@ Built with:
 
 ## Credit
 
-This project was done by [Michael Garcia] and [Hayder Naji] and myself.
+This project was done by [Michael Garcia] and [Hayder Naji] and [Mike Stegall].
 
 [Michael Garcia]:https://github.com/Mikuhl
 [Hayder Naji]:https://github.com/haydernaji
+[Mike Stegall]:https://github.com/MikeStegall

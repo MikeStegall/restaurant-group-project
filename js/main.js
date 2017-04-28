@@ -1,23 +1,28 @@
 /* global $ */
+// =======================================================================
+// Google API
+// =======================================================================
 
 // This function to locate our burrito restaurant
 function initMap () {
-  var uluru = {lat: 29.717628, lng: -95.496879}
+  var burritoBoys = {lat: 29.717628, lng: -95.496879}
   var map = new google.maps.Map(document.getElementById('map'), {
     zoom: 18,
-    center: uluru
+    center: burritoBoys
   })
   var marker = new google.maps.Marker({
-    position: uluru,
+    position: burritoBoys,
     map: map
   })
 }
 
+// =======================================================================
 // These are the functions on how to get pictures from the flickr API
+// =======================================================================
 var flickrURL = 'https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=d2cc21cf99dd2a91f2153e363b5c6cca&tags=chicken+burrito%2C+steak+burrito%2C+veggie+burrito&text=Burrito&per_page=500&format=json&nojsoncallback=1&auth_token=72157681044239921-75f6c167794a19cd&api_sig=53093f5fc91b4c4a9ddba0aebed663c2'
 // https://farm{farm-id}.staticflickr.com/{server-id}/{id}_{secret}.jpg
 
-function renderPic (data, num, imgEl) {
+function fetchPic (data, num, imgEl) {
   var farmID = data.photos.photo[num].farm
   var serverID = data.photos.photo[num].server
   var id = data.photos.photo[num].id
@@ -27,15 +32,15 @@ function renderPic (data, num, imgEl) {
   // console.log(picURL)
   // console.log(id)
 }
-
-function jsonFlickrApi (data) {
-  renderPic(data, 87, '.headerPic') // https://farm3.staticflickr.com/2679/4418434156_cf8a315ff8.jpg
-  renderPic(data, 1, '.dailySpecialPic') // https://farm8.staticflickr.com/7392/27981497742_70ae10950d.jpg
-  renderPic(data, 103, '.sidePic1')// https://farm3.staticflickr.com/2441/3744351366_cc5cbc0049.jpg
-  renderPic(data, 71, '.sidePic2') // https://farm5.staticflickr.com/4141/4882317101_84e32b3d62.jpg
-  renderPic(data, 80, '.sidePic3')
+// The number are for the picture object in the flickr api
+function renderPic (data) {
+  fetchPic(data, 87, '.headerPic') // https://farm3.staticflickr.com/2679/4418434156_cf8a315ff8.jpg
+  fetchPic(data, 1, '.dailySpecialPic') // https://farm8.staticflickr.com/7392/27981497742_70ae10950d.jpg
+  fetchPic(data, 103, '.sidePic1')// https://farm3.staticflickr.com/2441/3744351366_cc5cbc0049.jpg
+  fetchPic(data, 71, '.sidePic2') // https://farm6.staticflickr.com/5204/5383133286_32d384a40d.jpg
+  fetchPic(data, 80, '.sidePic3') // https://farm5.staticflickr.com/4141/4882317101_84e32b3d62.jpg
 }
-$.get(flickrURL).done(jsonFlickrApi).fail(responseFail)
+$.get(flickrURL).done(renderPic).fail(responseFail)
 
 // =======================================================================
 // This is the custom restaurant api
@@ -48,27 +53,26 @@ function dataToNews (data) {
 }
 
 function responseFail (element) {
-  element.html('Oops the ' + element + 'failed to load')
+  element.html('Oops')
 }
 
 var newsUrl = 'https://json-data.herokuapp.com/restaurant/news/1'
 var specialUrl = 'https://json-data.herokuapp.com/restaurant/special/1'
-var menu1Url = 'https://json-data.herokuapp.com/restaurant/menu/1'
+var menuUrl = 'https://json-data.herokuapp.com/restaurant/menu/1'
 $.get(newsUrl, dataToNews).fail(responseFail)
-$.get(menu1Url).done(callMenuData).fail(responseFail)
+$.get(menuUrl).done(callMenuData).fail(responseFail)
 
 // This is our specials api
 function showDailySpecial (data) {
   var id = '#' + data.menu_item_id
   var menuItem = $(id)
   $('#dailySpecial').html(menuItem)
-  console.log('this is the id: ' + id)
-  console.log('this is the menuItem: ' + menuItem)
 }
 
 function grabDailySpecials () {
   $.getJSON(specialUrl).done(showDailySpecial).fail(responseFail)
 }
+grabDailySpecials()
 
 // Menu Api
 function callMenuData (data) {
@@ -85,7 +89,6 @@ function constructMenuItems (foods, obj) {
   obj.forEach(function (item) {
     $('.menu').append(constructMenuEntries(item))
   })
-  grabDailySpecials()
 }
 
 function constructMenuEntries (eachFoodItem) {
@@ -96,39 +99,6 @@ function constructMenuEntries (eachFoodItem) {
 
 function firstLetterToUpper (str) {
   return str.charAt(0).toUpperCase() + str.slice(1)
-}
-// Menu API start
-$(function () {
-  var url = 'https://json-data.herokuapp.com/restaurant/menu/1'
-  $.getJSON(url).done(getMenuData)
-})
-
-function getMenuData (data) {
-  for (var item in data) {
-    if (data.hasOwnProperty(item)) {
-      buildMenu(item, data[item])
-    }
-  }
-}
-
-function buildMenu (foodCourse, obj) {
-  var foodCourseHeading = '<h2>' + foodCourse.charAt(0).toUpperCase() + foodCourse.slice(1) + '<h2>'
-  $('#menu').append(foodCourseHeading)
-  obj.forEach(function (index) {
-    $('#menu').append(createMenuEntries(index))
-  })
-  // getDailySpecial()
-}
-
-function createMenuEntries (eachFoodItem) {
-  var menuItem = '<div id="' + eachFoodItem.id + '">' + '<p>' + eachFoodItem.item + ' .......... $' + eachFoodItem.price + '</p>' +
-  '<p>' + eachFoodItem.description + '</p></div>'
-  return menuItem
-}
-function displayDailySpecial (data) {
-  var id = '#' + data.menu_item_id
-  var dailySpecial = $(id)
-  $('#dailySpecial').html(dailySpecial)
 }
 // responseFail($('.menu'))
 responseFail($('#dailySpecial'))
@@ -145,5 +115,3 @@ function toggleTabs (btn) {
   $('.menu, .history, .reservation').hide()
   $(className).show()
 }
-// Hides the content
-$('.menu, .reservation').hide()
