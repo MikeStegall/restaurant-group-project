@@ -18,7 +18,7 @@ font-family: 'Helvetica';
   border-style: solid;
 }
 .socialMedia {
-  background-color: #E0F7FA;
+  background-color: transparent;
   display: inline-block;
   position: absolute;
   right: 0px;
@@ -64,7 +64,9 @@ font-family: 'Helvetica';
 .buttons {
 margin: 0px auto;
 padding-bottom: 60px;
-width: 33.13%;
+width: 33.09%%;
+justify-content: center;
+}
 
 position: relative;
 text-align: center;
@@ -120,3 +122,42 @@ width: auto;
 #disqus_thread{
   border-style: solid;
 }
+/* For Tablets */
+@media only screen and (max-width: 768px) {
+  .main-logo img {
+    width: 40%;
+  }
+
+  .socialMedia {
+    display: none;
+  }
+
+  .headerPicWrapper {
+    height: 50vw;
+  }
+
+  .feed special {
+    height: 50vw;
+  }
+  .feed map {
+    display: none; }
+
+  .menuSidePicWrapper {
+    margin-right: 0;
+  }
+
+/* For mobile phones */
+@media only screen and (max-width: 480px) {
+  .main-logo img {
+    width: 60%;
+  }
+  .socialMedia {
+    display: none;
+  }
+  .feed special {
+    height: 60vw;
+  }
+
+  .headerPicWrapper {
+    flex-direction: column;
+  }
