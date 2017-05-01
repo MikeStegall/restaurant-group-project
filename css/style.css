@@ -5,9 +5,6 @@ font-family: 'Helvetica';
 .menuSidePicWrapper {
   display: flex;
 }
-/*.wrapper{
-  display: flex;
-}*/
 .feedWrapper{
   display: flex;
 }
@@ -15,7 +12,7 @@ font-family: 'Helvetica';
   display: flex;
 }
 .history{
-  border-style: solid;
+  border: solid black 2px;
 }
 .socialMedia {
   background-color: transparent;
@@ -49,115 +46,142 @@ font-family: 'Helvetica';
 .sideBar {
   flex: 1;
 }
-.sideBar {
-
-}
 .menu {
   border: solid black 2px;
 }
 .buttons {
   background-color: #00838F;
-  width: 251px;
-  height: 50px;
-  font-size: 25px;
+  margin: 0px auto;
+  width: 33.09%;
+  font-size: 50px;
+  justify-content: center;
+  position: relative;
+  text-align: center;
 }
-.buttons {
-margin: 0px auto;
-padding-bottom: 60px;
-width: 33.09%%;
-justify-content: center;
+.reservation {
+  border: solid black 2px;
+  padding-bottom: 10px;
 }
-
-position: relative;
-text-align: center;
+.dailySpecialPic {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: auto;
 }
 #footer {
-    margin: 0px auto;
-    padding-bottom: 60px;
-    width: 850px;
-
-    position: relative;
-    text-align: center;
+  margin: 0px auto;
+  position: relative;
+  text-align: center;
 }
 #footer .copyright {
-    color: #fff;
-    line-height: 22px;
-    margin-top: 10px;
+  line-height: 22px;
+  margin-top: 10px;
 }
 #map {
   height: 413px;
   width: 413px;
 }
 #news {
-  border-style: solid;
+  border: solid black 2px;
   left: 110px;
   top: 410px;
 }
 #special{
-  border-style: solid;
+  border: solid black 2px;
+  border-left: none
   left: 160px;
   top: 410px;
 }
-#fancy{
-  border-style: solid;
-  left: 210px;
-  top: 410px;
-}
-#alaydis{
-  border-style: solid;
-  left: 260px;
-  top: 410px;
-}
-#pub{
-  border-style: solid;
-  left: 310px;
-  top: 410px;
-}
 #logo {
-display: block;
-margin-left: auto;
-margin-right: auto;
-width: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: auto;
 }
 #disqus_thread{
-  border-style: solid;
+  border: solid black 2px;
+  border-top: none;
 }
-/* For Tablets */
-@media only screen and (max-width: 768px) {
-  .main-logo img {
-    width: 40%;
+/*For larger tablets*/
+@media only screen and (max-width: 1024px) {
+  #logo {
+    width: 80%;
+  }
+  .feedWrapper {
+    flex-direction: column;
   }
 
   .socialMedia {
     display: none;
   }
 
-  .headerPicWrapper {
-    height: 50vw;
+  .buttons {
+    width: 32.9%;
+    font-size: 25px;
   }
-
-  .feed special {
-    height: 50vw;
+  #map {
+    width: 100%;
   }
-  .feed map {
-    display: none; }
 
   .menuSidePicWrapper {
     margin-right: 0;
   }
+}
+/* For Tablets */
+@media only screen and (max-width: 768px) {
+  #logo {
+    width: 80%;
+  }
+  .feedWrapper {
+    flex-direction: column;
+  }
 
+  .socialMedia {
+    display: none;
+  }
+
+  .buttons {
+    width: 32.9%;
+    font-size: 25px;
+  }
+  .map {
+    display: none;
+  }
+
+  .menuSidePicWrapper {
+    margin-right: 0;
+  }
+}
 /* For mobile phones */
 @media only screen and (max-width: 480px) {
-  .main-logo img {
+  img {
     width: 60%;
+  }
+  .headerPic {
+    width: 74%;
+    height: 81%;
+    justify-content: center;
+  }
+  .dailySpecialPic {
+    width: 100%;
   }
   .socialMedia {
     display: none;
   }
-  .feed special {
-    height: 60vw;
+  .buttons {
+    width: 32.45%;
+    font-size: 12px;
   }
-
+  .map {
+    display: none;
+  }
+  .news {
+    display: none;
+  }
   .headerPicWrapper {
     flex-direction: column;
   }
+  .special-notes {
+    width: 50px
+  }
+}

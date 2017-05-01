@@ -1,17 +1,19 @@
-/* global $ */
+/* global $, google */
 // =======================================================================
 // Google API
 // =======================================================================
 
+var BURRITO_BOYS_LOCATION = {lat: 29.717628, lng: -95.496879}
+var MAP_ZOOM_LEVEL = 18
+
 // This function to locate our burrito restaurant
 function initMap () {
-  var burritoBoys = {lat: 29.717628, lng: -95.496879}
   var map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 18,
-    center: burritoBoys
+    zoom: MAP_ZOOM_LEVEL,
+    center: BURRITO_BOYS_LOCATION
   })
   var marker = new google.maps.Marker({
-    position: burritoBoys,
+    position: BURRITO_BOYS_LOCATION,
     map: map
   })
 }
@@ -19,7 +21,7 @@ function initMap () {
 // =======================================================================
 // These are the functions on how to get pictures from the flickr API
 // =======================================================================
-var flickrURL = 'https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=d2cc21cf99dd2a91f2153e363b5c6cca&tags=chicken+burrito%2C+steak+burrito%2C+veggie+burrito&text=Burrito&per_page=500&format=json&nojsoncallback=1&auth_token=72157681044239921-75f6c167794a19cd&api_sig=53093f5fc91b4c4a9ddba0aebed663c2'
+var flickrURL = 'https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=e258dacf03b435fca95660ccabfb24c7&tags=chicken+burrito%2C+steak+burrito%2C+veggie+burrito&text=Burrito&privacy_filter=1&safe_search=1&content_type=1&per_page=500&format=json&nojsoncallback=1&auth_token=72157681099193231-e6e7fed9c0b56748&api_sig=32ce99ef65e61abed87e6e52442bc971'
 // https://farm{farm-id}.staticflickr.com/{server-id}/{id}_{secret}.jpg
 
 function fetchPic (data, num, imgEl) {
@@ -29,8 +31,8 @@ function fetchPic (data, num, imgEl) {
   var secret = data.photos.photo[num].secret
   var picURL = 'https://farm' + farmID + '.staticflickr.com/' + serverID + '/' + id + '_' + secret + '.jpg'
   $(imgEl).attr('src', picURL)
-  // console.log(picURL)
-  // console.log(id)
+  console.log(picURL)
+  console.log(id)
 }
 // The number are for the picture object in the flickr api
 function renderPic (data) {
