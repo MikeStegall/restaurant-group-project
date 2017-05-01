@@ -94,7 +94,7 @@ function constructMenuItems (foods, obj) {
 }
 
 function constructMenuEntries (eachFoodItem) {
-  var menuItem = '<div id="' + eachFoodItem.id + '">' + '<p><b>' + eachFoodItem.item + '</b</p>' + '<p id="foodPrice"> $' + eachFoodItem.price + '</p>' +
+  var menuItem = '<div id="' + eachFoodItem.id + '">' + '<p><b>' + eachFoodItem.item + '</b></p>' + '<p id="foodPrice"> $' + eachFoodItem.price + '</p>' +
   '<p id="foodDescription">' + eachFoodItem.description + '</p></div>'
   return menuItem
 }
