@@ -83,10 +83,14 @@ h3 {
   cursor: pointer;
 }
 .buttons {
-margin: 0px auto;
-padding-bottom: 60px;
-width: 33.09%%;
-justify-content: center;
+  text-align: center;
+  vertical-align: middle;
+  padding: 24px 24px;
+  background-color: #00838F;
+  width: 251px;
+  height: 50px;
+  font-size: 25px;
+  cursor: pointer;
 }
 
 .reservation {
