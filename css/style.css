@@ -42,6 +42,7 @@ h3 {
   position: absolute;
   right: 0px;
   top: 0%;
+  cursor: pointer;
 }
 .openTable {
   height: 40px;
@@ -79,6 +80,7 @@ h3 {
   width: 251px;
   height: 50px;
   font-size: 25px;
+  cursor: pointer;
 }
 .buttons {
 margin: 0px auto;
