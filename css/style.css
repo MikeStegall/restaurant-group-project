@@ -2,6 +2,25 @@ body {
 background: linear-gradient(#e0e0eb, #26C6DA);
 font-family: 'Helvetica';
 }
+
+h3 {
+  text-align: center;
+}
+
+.news {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.special {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.history {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
 .menuSidePicWrapper {
   display: flex;
 }
@@ -11,7 +30,7 @@ font-family: 'Helvetica';
 .feedWrapper{
   display: flex;
 }
-.titleWrap{
+.titleWrap {
   display: flex;
 }
 .history{
@@ -49,11 +68,11 @@ font-family: 'Helvetica';
 .sideBar {
   flex: 1;
 }
-.sideBar {
 
-}
 .menu {
   border: solid black 2px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 .buttons {
   background-color: #00838F;
@@ -68,9 +87,18 @@ width: 33.09%%;
 justify-content: center;
 }
 
-position: relative;
-text-align: center;
+.reservation {
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
 }
+
+img {
+  max-width: 100%;
+  height: auto;
+  margin: 0 0 10px 0;
+}
+
 #footer {
     margin: 0px auto;
     padding-bottom: 60px;
@@ -85,6 +113,7 @@ text-align: center;
     margin-top: 10px;
 }
 #map {
+  margin: auto;
   height: 413px;
   width: 413px;
 }
@@ -93,7 +122,7 @@ text-align: center;
   left: 110px;
   top: 410px;
 }
-#special{
+#special {
   border-style: solid;
   left: 160px;
   top: 410px;
@@ -121,43 +150,7 @@ width: auto;
 }
 #disqus_thread{
   border-style: solid;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 /* For Tablets */
-@media only screen and (max-width: 768px) {
-  .main-logo img {
-    width: 40%;
-  }
-
-  .socialMedia {
-    display: none;
-  }
-
-  .headerPicWrapper {
-    height: 50vw;
-  }
-
-  .feed special {
-    height: 50vw;
-  }
-  .feed map {
-    display: none; }
-
-  .menuSidePicWrapper {
-    margin-right: 0;
-  }
-
-/* For mobile phones */
-@media only screen and (max-width: 480px) {
-  .main-logo img {
-    width: 60%;
-  }
-  .socialMedia {
-    display: none;
-  }
-  .feed special {
-    height: 60vw;
-  }
-
-  .headerPicWrapper {
-    flex-direction: column;
-  }

@@ -1,0 +1,28 @@
+mainLogo {
+  width: 50%;
+  height: 50%;
+}
+
+menuSidePicWrapper {
+  width: 47.5%;
+}
+
+headerPicWrapper {
+
+}
+
+@media screen and (max-width: 500px) {
+
+  .menuSidePicWrapper {
+    width: auto;
+    float: none;
+    margin: right;
+  }
+  .icons {
+    display: none;
+  }
+ .openTable {
+   display: none;
+ }
+
+ 
