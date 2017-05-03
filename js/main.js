@@ -31,8 +31,6 @@ function fetchPic (data, num, imgEl) {
   var secret = data.photos.photo[num].secret
   var picURL = 'https://farm' + farmID + '.staticflickr.com/' + serverID + '/' + id + '_' + secret + '.jpg'
   $(imgEl).attr('src', picURL)
-  console.log(picURL)
-  console.log(id)
 }
 // The number are for the picture object in the flickr api
 function renderPic (data) {
