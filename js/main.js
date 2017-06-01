@@ -1,7 +1,7 @@
 /* global $, google */
-// =======================================================================
+// =============================================================================
 // Google API
-// =======================================================================
+// =============================================================================
 
 var BURRITO_BOYS_LOCATION = {lat: 29.717628, lng: -95.496879}
 var MAP_ZOOM_LEVEL = 18
@@ -18,10 +18,10 @@ function initMap () {
   })
 }
 
-// =======================================================================
+// =============================================================================
 // These are the functions on how to get pictures from the flickr API
-// =======================================================================
-var flickrURL = 'https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=e258dacf03b435fca95660ccabfb24c7&tags=chicken+burrito%2C+steak+burrito%2C+veggie+burrito&text=Burrito&privacy_filter=1&safe_search=1&content_type=1&per_page=500&format=json&nojsoncallback=1&auth_token=72157681099193231-e6e7fed9c0b56748&api_sig=32ce99ef65e61abed87e6e52442bc971'
+// =============================================================================
+var flickrURL = 'https://aapi.flickr.com/services/rest/?method=flickr.photos.search&api_key=50a1bfa5af9ecd7525286a28378afca7&tags=chicken+burrito%2C+steak+burrito%2C+veggie+burrito&text=Burrito&per_page=500&format=json&nojsoncallback'
 // https://farm{farm-id}.staticflickr.com/{server-id}/{id}_{secret}.jpg
 
 function fetchPic (data, num, imgEl) {
@@ -38,13 +38,21 @@ function renderPic (data) {
   fetchPic(data, 1, '.dailySpecialPic') // https://farm8.staticflickr.com/7392/27981497742_70ae10950d.jpg
   fetchPic(data, 103, '.sidePic1')// https://farm3.staticflickr.com/2441/3744351366_cc5cbc0049.jpg
   fetchPic(data, 71, '.sidePic2') // https://farm6.staticflickr.com/5204/5383133286_32d384a40d.jpg
-  fetchPic(data, 80, '.sidePic3') // https://farm5.staticflickr.com/4141/4882317101_84e32b3d62.jpg
+  fetchPic(data, 80, '.sidePic3') // https://farm6.staticflickr.com/5041/5376664989_8673b8b9fc.jpg
 }
-$.get(flickrURL).done(renderPic).fail(responseFail)
+function ifFlickrFail () {
+  $('.headerPic').attr('src', 'https://farm3.staticflickr.com/2679/4418434156_cf8a315ff8.jpg')
+  $('.dailySpecialPic').attr('src', 'https://farm8.staticflickr.com/7392/27981497742_70ae10950d.jpg')
+  $('.sidePic1').attr('src', 'https://farm3.staticflickr.com/2441/3744351366_cc5cbc0049.jpg')
+  $('.sidePic2').attr('src', 'https://farm6.staticflickr.com/5204/5383133286_32d384a40d.jpg')
+  $('.sidePic3').attr('src', 'https://farm5.staticflickr.com/4141/4882317101_84e32b3d62.jpg')
+}
 
-// =======================================================================
+$.getJSON(flickrURL).done(renderPic).fail(ifFlickrFail)
+
+// =============================================================================
 // This is the custom restaurant api
-// =======================================================================
+// =============================================================================
 
 // This our news API
 function dataToNews (data) {
@@ -59,8 +67,8 @@ function responseFail (element) {
 var newsUrl = 'https://json-data.herokuapp.com/restaurant/news/1'
 var specialUrl = 'https://json-data.herokuapp.com/restaurant/special/1'
 var menuUrl = 'https://json-data.herokuapp.com/restaurant/menu/1'
-$.get(newsUrl, dataToNews).fail(responseFail)
-$.get(menuUrl).done(callMenuData).fail(responseFail)
+$.getJSON(newsUrl, dataToNews).fail(responseFail)
+$.getJSON(menuUrl).done(callMenuData).fail(responseFail)
 
 // This is our specials api
 function showDailySpecial (data) {
